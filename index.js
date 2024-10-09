@@ -7,6 +7,7 @@ const IPINFO_API_KEY = "key here";
 
 const loops = 15000;
 var regionscomplete = {};
+var regionsString = '';
 
 
 async function processDomains() {
@@ -63,6 +64,8 @@ function pushRegionData(region, data) {
     };
     
     regionscomplete[region].push(data); // add the resolved data to the region array
+    regionsString += `${data.dns}\n`;
+    console.log(`ADDED ${data.dns}`);
 };
 
 processDomains();
@@ -76,6 +79,13 @@ function beforeProcessExit() {
         } else {
             console.log('JSON file saved successfully!');
         }
+    });
+    fs.writeFileSync('./regions.txt', regionsString, (err) => {
+      if (err) {
+          console.error('Error writing regions.txt file:', err);
+      } else {
+          console.log('regions.txt file saved successfully!');
+      }
     });
     console.log("Before process exit");
     console.log(regionscomplete);
