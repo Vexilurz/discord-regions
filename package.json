@@ -1,0 +1,16 @@
+{
+  "name": "discord-voice-servers",
+  "version": "0.0.1",
+  "description": "Resolve all discord voice server IPS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AndyIsHereBoi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "node-fetch": "^3.3.2"
+  }
+}
